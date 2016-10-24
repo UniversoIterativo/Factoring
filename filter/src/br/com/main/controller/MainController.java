@@ -28,6 +28,12 @@ public class MainController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+String acao = request.getParameter("acao");
+		
+		if(acao != null && acao.equals("manager")){
+			RequestDispatcher saida = request.getRequestDispatcher("restrict/manager.jsp");
+			saida.forward(request, response);	
+		}
 		RequestDispatcher saida = request.getRequestDispatcher("restrict/home.jsp");
 		saida.forward(request, response);
 	}

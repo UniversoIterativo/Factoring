@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>Home - restrict</p>
-<a href="logoutcontroller.do">Logout</a>
+<p>Public - Sobre</p>
 </body>
 </html>

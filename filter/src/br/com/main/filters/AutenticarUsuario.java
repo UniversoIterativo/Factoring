@@ -42,10 +42,14 @@ public class AutenticarUsuario implements Filter {
 		String url = httpServletRequest .getRequestURI();				
 		HttpSession sessao = httpServletRequest .getSession();				
 		if (sessao.getAttribute("usuario.logado")!= null || url.lastIndexOf("index.jsp")>-1 ||
-			url.lastIndexOf("logincontroller.do") >-1 ){
+			url.lastIndexOf("logincontroller.do") >-1 || url.lastIndexOf("sitecontroller.do")>-1){
 			chain.doFilter(request, response); 
 			}else{
-				((HttpServletResponse) response).sendRedirect("index.jsp");
+				if	( url.lastIndexOf("restrict")>-1 ) {
+					((HttpServletResponse) response).sendRedirect("../index.jsp");
+				} else {
+					((HttpServletResponse) response).sendRedirect("index.jsp");
+				}
 		}		
 	}
 
